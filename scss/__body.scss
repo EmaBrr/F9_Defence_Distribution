@@ -1,0 +1,47 @@
+/* styles.css */
+:root {
+    --header-height: 105px; /* Adjust this to match your header height */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: #191919;
+    color: white;
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: transparent;
+    text-align: center;
+}
+
+main {
+    margin-top: 105px; /* Height of the fixed header */
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; /* Enable vertical scroll snapping */
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(100vh - 105px);
+    scroll-snap-align: start; /* Snap to the start of each section */
+}
+
+#section1 { background-color: #1a1a1a; }
+#section2 { background-color: #2b2b2b; }
+#section3 { background-color: #3c3c3c; }
+#section4 { background-color: #4d4d4d; }
+#section5 { background-color: #5e5e5e; }
+#section6 { background-color: #5e5e5e; }

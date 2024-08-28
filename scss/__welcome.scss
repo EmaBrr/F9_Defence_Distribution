@@ -14,9 +14,18 @@ $headline-height-xxsmall: 350px;
   align-items: center;
   justify-content: center;
   width: 100%;
-  
-  @media screen and (min-width: 1000px) {
-    margin-top: 40px;
+  margin-top: 45px;
+
+  @media screen and (max-width: 920px){
+    margin-top: 55px;
+  }
+
+  @media screen and (min-width: 921px) and (max-width: 1499px) {
+    margin-top: 50px;
+  }
+
+  @media screen and (max-width: 1500px) {
+    margin-top: 45px;
   }
 
   .welcome-container {

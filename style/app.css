@@ -87,9 +87,8 @@ h6 {
   font-weight: 400;
 }
 
-/* styles.css */
 :root {
-  --header-height: 105px; /* Adjust this to match your header height */
+  --header-height: 105px;
 }
 
 html {
@@ -101,7 +100,7 @@ body {
   background-color: #191919;
   color: white;
   overflow-x: hidden;
-  scroll-behavior: smooth; /* Enable smooth scrolling */
+  scroll-behavior: smooth;
 }
 
 header {
@@ -114,9 +113,9 @@ header {
 }
 
 main {
-  margin-top: 105px; /* Height of the fixed header */
+  margin-top: 105px;
   overflow-y: scroll;
-  scroll-snap-type: y mandatory; /* Enable vertical scroll snapping */
+  scroll-snap-type: y mandatory;
 }
 
 .section {
@@ -125,11 +124,7 @@ main {
   justify-content: center;
   width: 100%;
   height: calc(100vh - 105px);
-  scroll-snap-align: start; /* Snap to the start of each section */
-}
-
-#section1 {
-  background-color: #1a1a1a;
+  scroll-snap-align: start;
 }
 
 #section2 {
@@ -175,7 +170,7 @@ main {
 }
 .item-container h1 {
   font-family: "Poppins", Sans-serif;
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   letter-spacing: 4px;
   padding-top: 10px;
   font-weight: 500;
@@ -188,7 +183,7 @@ main {
 }
 @media screen and (max-width: 1266px) {
   .item-container h1 {
-    font-size: 3rem;
+    font-size: 2.4rem;
   }
 }
 @media screen and (max-width: 985px) {
@@ -198,18 +193,20 @@ main {
 }
 @media screen and (max-width: 790px) {
   .item-container h1 {
-    font-size: 2.3rem;
+    font-size: 2.1rem;
     line-height: 1.1;
   }
 }
 @media screen and (max-width: 550px) {
   .item-container h1 {
-    font-size: 2rem;
+    font-size: 1.9rem;
+    padding-bottom: 0px;
   }
 }
 @media screen and (max-width: 440px) {
   .item-container h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
+    padding-bottom: 10px;
   }
 }
 .item-container span {
@@ -245,7 +242,7 @@ main {
 }
 .item-container h3 {
   font-family: "Work Sans", sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   font-weight: 400;
   letter-spacing: 1px;
   line-height: 1;
@@ -278,7 +275,11 @@ main {
 @media screen and (max-width: 550px) {
   .item-container h3 {
     font-size: 1rem;
-    padding: 20px 0px;
+  }
+}
+@media screen and (max-width: 440px) {
+  .item-container h3 {
+    font-size: 1rem;
   }
 }
 .item-container p {
@@ -314,31 +315,27 @@ main {
     font-size: 1rem;
   }
 }
+@media screen and (max-width: 440px) {
+  .item-container p {
+    font-size: 0.9rem;
+  }
+}
 
 .item {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  animation: slideInFromBelow 1.2s ease-out forwards;
-  opacity: 0;
-}
-@media screen and (max-width: 690px) {
-  .item {
-    margin-bottom: 0px;
-  }
+  opacity: 0; /* Start as invisible */
+  transform: translateY(50px); /* Start slightly below its final position */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-@keyframes slideInFromBelow {
-  0% {
-    transform: translateY(50px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.item.show {
+  opacity: 1; /* Become visible */
+  transform: translateY(0); /* Move to final position */
 }
+
 header {
   width: 100%;
   display: inline-block;
@@ -840,6 +837,8 @@ header .nav .nav-container .navigation .nav-items li a :visited {
   display: flex;
   flex-direction: column;
   width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 @media screen and (max-width: 790px) {
   .about .about-text {
@@ -848,42 +847,39 @@ header .nav .nav-container .navigation .nav-items li a :visited {
 }
 .about .about-text p {
   color: #f8f7f6;
-  padding: 20px 0px;
-  padding-right: 30px;
-  justify-content: center;
+  font-size: 1.45rem;
   text-align: center;
+}
+@media screen and (max-width: 1266px) {
+  .about .about-text p {
+    font-size: 1.35rem;
+  }
+}
+@media screen and (max-width: 985px) {
+  .about .about-text p {
+    font-size: 1.25rem;
+  }
 }
 @media screen and (max-width: 790px) {
   .about .about-text p {
-    padding: 0px;
-    justify-content: center;
-    text-align: center;
-    padding-top: 10px;
+    font-size: 1.15rem;
   }
 }
-.about .about-img {
-  margin: 20px 0px;
-  width: 40%;
-  position: relative;
-  padding-top: 40%; /* This makes the container a square */
-  overflow: hidden;
-}
-@media screen and (max-width: 790px) {
-  .about .about-img {
-    width: 100%;
-    padding-top: auto;
-    margin: 0px;
+@media screen and (max-width: 690px) {
+  .about .about-text p {
+    font-size: 1.1rem;
   }
 }
-.about .about-img img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensures the image covers the container while maintaining its aspect ratio */
-  transform: translate(-50%, -50%); /* Center the image */
-  border-radius: 15px;
+@media screen and (max-width: 550px) {
+  .about .about-text p {
+    font-size: 1.05rem;
+  }
+}
+@media screen and (max-width: 440px) {
+  .about .about-text p {
+    font-size: 1rem;
+    padding: 10px 0px;
+  }
 }
 
 .services {
@@ -912,14 +908,45 @@ header .nav .nav-container .navigation .nav-items li a :visited {
     padding: 10px;
   }
 }
+@media screen and (max-width: 440px) {
+  .services .item {
+    padding-bottom: 0px;
+  }
+}
 .services .item i {
   font-size: 2.5rem;
   color: #b09c86;
   margin-bottom: 15px;
 }
+@media screen and (max-width: 1266px) {
+  .services .item i {
+    font-size: 2.4rem;
+  }
+}
+@media screen and (max-width: 985px) {
+  .services .item i {
+    font-size: 2.2rem;
+  }
+}
+@media screen and (max-width: 790px) {
+  .services .item i {
+    font-size: 2.1rem;
+  }
+}
 @media screen and (max-width: 690px) {
   .services .item i {
     margin-bottom: 5px;
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .services .item i {
+    font-size: 1.9rem;
+  }
+}
+@media screen and (max-width: 440px) {
+  .services .item i {
+    font-size: 1.8rem;
   }
 }
 .services .item h3 {
@@ -940,6 +967,13 @@ header .nav .nav-container .navigation .nav-items li a :visited {
   min-height: 80px;
   padding: 0;
   padding-top: 10px;
+}
+@media screen and (max-width: 440px) {
+  .services .item p {
+    padding-top: 0px;
+    line-height: 1.4;
+    min-height: auto;
+  }
 }
 
 .values-section {

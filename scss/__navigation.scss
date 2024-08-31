@@ -1,6 +1,7 @@
 header {
   width: 100%;
   display: inline-block;
+
   .slogan {
     height: 25px;
     overflow: hidden;
@@ -211,7 +212,6 @@ header {
   }
 }
 
-// Mobile Screens (max-width: 920px)
 @media screen and (max-width: 920px) {
   header {
     min-width: 370px;
@@ -326,7 +326,7 @@ header {
           }
 
           .nav-items {
-            display: none !important; 
+            display: none !important;
           }
         }
       }

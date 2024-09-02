@@ -90,6 +90,16 @@ h6 {
 :root {
   --header-height: 105px;
 }
+@media screen and (min-width: 921px) and (max-width: 1499px) {
+  :root {
+    --header-height: 85px;
+  }
+}
+@media screen and (max-width: 920px) {
+  :root {
+    --header-height: 75px;
+  }
+}
 
 html {
   scroll-behavior: smooth;
@@ -147,69 +157,25 @@ main {
   background-color: #2b2b2b;
 }
 
-.item-container {
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.item .item-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
   max-width: 1400px;
-  padding: 0px 40px;
   align-items: center;
-  padding-top: 40px;
+  max-width: 1400px;
 }
-@media screen and (max-width: 1500px) {
-  .item-container {
-    width: 90%;
-  }
-}
-@media screen and (max-width: 790px) {
-  .item-container {
-    padding: 0px 5px;
-    padding-top: 30px;
-  }
-}
-.item-container h1 {
-  font-family: "Poppins", Sans-serif;
-  font-size: 2.5rem;
-  letter-spacing: 4px;
-  padding-top: 10px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  line-height: 1.2;
-  color: #f8f7f6;
-  padding-bottom: 20px;
-  text-transform: uppercase;
-  text-align: center;
-}
-@media screen and (max-width: 1266px) {
-  .item-container h1 {
-    font-size: 2.4rem;
-  }
-}
-@media screen and (max-width: 985px) {
-  .item-container h1 {
-    font-size: 2.3rem;
-  }
-}
-@media screen and (max-width: 790px) {
-  .item-container h1 {
-    font-size: 2.1rem;
-    line-height: 1.1;
-  }
-}
-@media screen and (max-width: 550px) {
-  .item-container h1 {
-    font-size: 1.9rem;
-    padding-bottom: 0px;
-  }
-}
-@media screen and (max-width: 440px) {
-  .item-container h1 {
-    font-size: 1.6rem;
-    padding-bottom: 10px;
-  }
-}
-.item-container span {
+.item .item-container span {
   font-family: "Work Sans", sans-serif;
   font-size: 1.1rem;
   font-weight: 400;
@@ -221,26 +187,70 @@ main {
   width: fit-content;
 }
 @media screen and (max-width: 1266px) {
-  .item-container span {
+  .item .item-container span {
     font-size: 1.3rem;
   }
 }
 @media screen and (max-width: 985px) {
-  .item-container span {
+  .item .item-container span {
     font-size: 1.1rem;
   }
 }
 @media screen and (max-width: 790px) {
-  .item-container span {
+  .item .item-container span {
     font-size: 1rem;
   }
 }
 @media screen and (max-width: 550px) {
-  .item-container span {
+  .item .item-container span {
     font-size: 0.9rem;
   }
 }
-.item-container h3 {
+.item .item-container h1 {
+  font-family: "Poppins", Sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 4px;
+  padding-top: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 1.2;
+  color: #f8f7f6;
+  padding-bottom: 30px;
+  text-transform: uppercase;
+  text-align: center;
+}
+@media screen and (max-width: 1266px) {
+  .item .item-container h1 {
+    font-size: 2.4rem;
+    padding-bottom: 25px;
+  }
+}
+@media screen and (max-width: 985px) {
+  .item .item-container h1 {
+    font-size: 2.3rem;
+    padding-bottom: 20px;
+  }
+}
+@media screen and (max-width: 790px) {
+  .item .item-container h1 {
+    font-size: 2.1rem;
+    line-height: 1.1;
+    padding-bottom: 15px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .item .item-container h1 {
+    font-size: 1.9rem;
+    padding-bottom: 10px;
+  }
+}
+@media screen and (max-width: 440px) {
+  .item .item-container h1 {
+    font-size: 1.6rem;
+    padding-bottom: 10px;
+  }
+}
+.item .item-container h3 {
   font-family: "Work Sans", sans-serif;
   font-size: 1.45rem;
   font-weight: 400;
@@ -252,37 +262,37 @@ main {
   text-align: center;
 }
 @media screen and (max-width: 1266px) {
-  .item-container h3 {
+  .item .item-container h3 {
     font-size: 1.2rem;
   }
 }
 @media screen and (max-width: 985px) {
-  .item-container h3 {
+  .item .item-container h3 {
     font-size: 1rem;
   }
 }
 @media screen and (max-width: 790px) {
-  .item-container h3 {
+  .item .item-container h3 {
     font-size: 0.9rem;
   }
 }
 @media screen and (max-width: 690px) {
-  .item-container h3 {
+  .item .item-container h3 {
     font-size: 1.1rem;
     padding: 10px 0px;
   }
 }
 @media screen and (max-width: 550px) {
-  .item-container h3 {
+  .item .item-container h3 {
     font-size: 1rem;
   }
 }
 @media screen and (max-width: 440px) {
-  .item-container h3 {
+  .item .item-container h3 {
     font-size: 1rem;
   }
 }
-.item-container p {
+.item .item-container p {
   font-family: "Work Sans", sans-serif;
   font-size: 1.2rem;
   font-weight: 300;
@@ -291,49 +301,39 @@ main {
   color: #b09c86;
 }
 @media screen and (max-width: 1266px) {
-  .item-container p {
+  .item .item-container p {
     font-size: 1.15rem;
   }
 }
 @media screen and (max-width: 985px) {
-  .item-container p {
+  .item .item-container p {
     font-size: 1.05rem;
   }
 }
 @media screen and (max-width: 790px) {
-  .item-container p {
+  .item .item-container p {
     font-size: 0.95rem;
   }
 }
 @media screen and (max-width: 690px) {
-  .item-container p {
+  .item .item-container p {
     font-size: 1rem;
   }
 }
 @media screen and (max-width: 550px) {
-  .item-container p {
+  .item .item-container p {
     font-size: 1rem;
   }
 }
 @media screen and (max-width: 440px) {
-  .item-container p {
+  .item .item-container p {
     font-size: 0.9rem;
   }
 }
 
-.item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  opacity: 0; /* Start as invisible */
-  transform: translateY(50px); /* Start slightly below its final position */
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
 .item.show {
-  opacity: 1; /* Become visible */
-  transform: translateY(0); /* Move to final position */
+  opacity: 1;
+  transform: translateY(0);
 }
 
 header {
@@ -882,6 +882,17 @@ header .nav .nav-container .navigation .nav-items li a :visited {
   }
 }
 
+@media screen and (max-width: 690px) {
+  .item-container {
+    padding-top: 20px;
+  }
+}
+@media screen and (max-width: 440px) {
+  .item-container {
+    padding-top: 40px;
+  }
+}
+
 .services {
   display: flex;
   flex-direction: row;
@@ -894,7 +905,7 @@ header .nav .nav-container .navigation .nav-items li a :visited {
     flex-direction: column;
   }
 }
-.services .item {
+.services .service-item {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -903,61 +914,76 @@ header .nav .nav-container .navigation .nav-items li a :visited {
   box-sizing: border-box;
   text-align: center;
 }
-@media screen and (max-width: 860px) {
-  .services .item {
+@media screen and (max-width: 1266px) {
+  .services .service-item {
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 985px) {
+  .services .service-item {
+    padding: 10px;
+  }
+}
+@media screen and (max-width: 690px) {
+  .services .service-item {
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .services .service-item {
     padding: 10px;
   }
 }
 @media screen and (max-width: 440px) {
-  .services .item {
-    padding-bottom: 0px;
+  .services .service-item {
+    padding: 10px 0px;
   }
 }
-.services .item i {
+.services .service-item i {
   font-size: 2.5rem;
   color: #b09c86;
   margin-bottom: 15px;
 }
 @media screen and (max-width: 1266px) {
-  .services .item i {
+  .services .service-item i {
     font-size: 2.4rem;
   }
 }
 @media screen and (max-width: 985px) {
-  .services .item i {
+  .services .service-item i {
     font-size: 2.2rem;
   }
 }
 @media screen and (max-width: 790px) {
-  .services .item i {
+  .services .service-item i {
     font-size: 2.1rem;
   }
 }
 @media screen and (max-width: 690px) {
-  .services .item i {
+  .services .service-item i {
     margin-bottom: 5px;
     font-size: 2rem;
   }
 }
 @media screen and (max-width: 550px) {
-  .services .item i {
+  .services .service-item i {
     font-size: 1.9rem;
   }
 }
 @media screen and (max-width: 440px) {
-  .services .item i {
+  .services .service-item i {
     font-size: 1.8rem;
   }
 }
-.services .item h3 {
+.services .service-item h3 {
   margin: 10px 0;
 }
 @media screen and (max-width: 690px) {
-  .services .item h3 {
+  .services .service-item h3 {
     padding: 0;
   }
 }
-.services .item p {
+.services .service-item p {
   flex: 1;
   margin: 0;
   display: flex;
@@ -965,11 +991,10 @@ header .nav .nav-container .navigation .nav-items li a :visited {
   text-align: center;
   line-height: 1.5;
   min-height: 80px;
-  padding: 0;
-  padding-top: 10px;
+  padding: 10px 0px;
 }
 @media screen and (max-width: 440px) {
-  .services .item p {
+  .services .service-item p {
     padding-top: 0px;
     line-height: 1.4;
     min-height: auto;

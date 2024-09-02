@@ -1,105 +1,67 @@
-// // Scrolling through the section 
+function applyZoomEffect() {
+  let startSize;
+  let endSize;
 
-// document.addEventListener('wheel', (event) => {
-//     event.preventDefault();
-//     let sectionHeight = window.innerHeight;
-//     let delta = event.deltaY;
-//     let scrollTop = window.scrollY;
-//     let nextScrollPosition = scrollTop + (delta > 0 ? sectionHeight : -sectionHeight);
+  if (window.innerWidth > 1200) {
+    startSize = "150%"; // Larger start size for larger screens
+    endSize = "110%"; // Larger end size for larger screens
+  } else if (window.innerWidth > 1092) {
+    startSize = "160%"; // Medium start size for medium screens
+    endSize = "120%"; // Medium end size for medium screens
+  } else if (window.innerWidth > 968) {
+    startSize = "190%"; // Medium start size for medium screens
+    endSize = "150%"; // Medium end size for medium screens
+  } else if (window.innerWidth > 768) {
+    startSize = "240%"; // Medium start size for medium screens
+    endSize = "200%"; // Medium end size for medium screens
+  } else if (window.innerWidth > 476) {
+    startSize = "270%"; // Medium start size for medium screens
+    endSize = "230%"; // Medium end size for medium screens
+  } else {
+    startSize = "330%"; // Smaller start size for smaller screens
+    endSize = "290%"; // Smaller end size for smaller screens
+  }
 
-//     window.scrollTo({
-//         top: nextScrollPosition,
-//         behavior: 'smooth'
-//     });
-// });
-
-// function adjustSectionHeights() {
-
-//     const headerHeight = document.querySelector('header').offsetHeight;
-    
-//     document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
-    
-//     document.querySelectorAll('.section').forEach(section => {
-//         section.style.height = `calc(100vh - ${headerHeight}px)`;
-//     });
-// }
-
-// window.addEventListener('load', adjustSectionHeights);
-
-// window.addEventListener('resize', adjustSectionHeights);
-// Function to handle intersection events
-function handleIntersect(entries, observer) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        } else {
-            entry.target.classList.remove('show'); // Reset when out of view (optional)
-        }
-    });
+  gsap.fromTo(
+    ".headline",
+    {
+      backgroundSize: startSize,
+      backgroundPosition: "center center",
+    },
+    {
+      backgroundSize: endSize,
+      duration: 5,
+      ease: "power2.out",
+    }
+  );
 }
 
-// Function to create and initialize the observer
-function createObserver() {
-    const options = {
-        root: null, // relative to the viewport
-        rootMargin: '0px',
-        threshold: 0.1 // trigger when 10% of the item is visible
-    };
+window.addEventListener("load", applyZoomEffect);
 
-    const observer = new IntersectionObserver(handleIntersect, options);
-
-    document.querySelectorAll('.item').forEach(item => {
-        observer.observe(item);
-    });
-}
-
-// Adjust section heights based on the header
-function adjustSectionHeights() {
-    const headerHeight = document.querySelector('header').offsetHeight;
-    document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
-
-    document.querySelectorAll('.section').forEach(section => {
-        section.style.height = `calc(100vh - ${headerHeight}px)`;
-    });
-}
-
-// Set up event listeners
-window.addEventListener('load', () => {
-    adjustSectionHeights();
-    createObserver(); // Initialize observer on page load
-});
-
-window.addEventListener('resize', adjustSectionHeights);
-
-
-// Navigation
+window.addEventListener("resize", applyZoomEffect);
 
 document.addEventListener("DOMContentLoaded", function () {
-    const navHam = document.querySelector(".nav-ham");
-    const navItems = document.querySelector(".nav-items");
-  
-    // Function to toggle the active class
-    function toggleNav() {
-      navHam.classList.toggle("active");
-      // navItems.style.display = navHam.classList.contains('active') ? 'block' : 'none';
-    }
-  
-    // Click event to toggle nav-ham
-    navHam.addEventListener("click", function (e) {
-      e.stopPropagation(); // Prevent the click from propagating to document
-      toggleNav();
+  var valueItems = document.querySelectorAll(".value-item");
+
+  valueItems.forEach(function (item) {
+    item.addEventListener("mouseenter", function () {
+      var content = item.querySelector(".value-overlay");
+      var image = item.querySelector(".value-image");
+      var title = item.querySelector(".value-title");
+
+      content.style.opacity = "1";
+      image.style.opacity = "0.3";
+      title.style.opacity = "0";
     });
-  
-    // Click event to remove active class when clicking anywhere else
-    document.addEventListener("click", function () {
-      if (navHam.classList.contains("active")) {
-        navHam.classList.remove("active");
-        navItems.style.display = "none";
-      }
-    });
-  
-    // Prevent clicking inside the nav items from closing the menu
-    navItems.addEventListener("click", function (e) {
-      e.stopPropagation();
+
+    item.addEventListener("mouseleave", function () {
+      var content = item.querySelector(".value-overlay");
+      var image = item.querySelector(".value-image");
+      var title = item.querySelector(".value-title");
+
+      content.style.opacity = "0";
+      image.style.opacity = "1";
+      title.style.opacity = "1";
     });
   });
+});

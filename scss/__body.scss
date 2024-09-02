@@ -1,5 +1,13 @@
 :root {
   --header-height: 105px;
+
+  @media screen and (min-width: 921px) and (max-width: 1499px) {
+    --header-height: 85px;
+  }
+
+  @media screen and (max-width: 920px) {
+    --header-height: 75px;
+  }
 }
 
 html {
